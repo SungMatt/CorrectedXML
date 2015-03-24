@@ -21,10 +21,10 @@
     <tip after="30s" count="10" every="6m">Forming alliances with enemy teams are allowed!</tip>
 </broadcasts>
 <teams>
-   <team id="orange-team" color="orange" max="20" max-overfill="25">Orange Team</team>
-   <team id="blue-team" color="blue" max="20" max-overfill="25">Blue Team</team>
-   <team id="purple-team" color="pruple" max="20" max-overfill="25">Purple Team</team>
-   <team id="green-team" color="green" max="20" max-overfill="25">Green Team</team>
+   <team id="orange" color="orange" max="20" max-overfill="25">Orange Team</team>
+   <team id="blue" color="blue" max="20" max-overfill="25">Blue Team</team>
+   <team id="purple" color="purple" max="20" max-overfill="25">Purple Team</team>
+   <team id="green" color="green" max="20" max-overfill="25">Green Team</team>
 </teams>
 <spawns>
     <spawn team="orange" kit="orange">
