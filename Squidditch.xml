@@ -1,0 +1,340 @@
+<?xml version="1.0"?>
+<map proto="1.3.6">
+<include src="tutorial.xml"/>
+<name>Squidditch</name>
+<version>1.0.0</version>
+<objective>Craft and return the enemy wools to your victory monuments.</objective>
+<rules>
+    <rule>You may form an alliance with the opposing team(s) in order to win the game.</rule>
+</rules>
+<authors>
+    <author>LessFruit</author>
+</authors>
+<contributors>
+    <contributor>TheStunderOne</contributor>
+    <contributor contribution="XML and Packaging">Qixit</contributor>
+</contributors>
+<broadcasts>
+	<alert after="5s">In order to win the game for your team you must obtain the opposing teams dyes to alter the color of the wool, which can be found in the middle underneath the sheep.</alert>
+	<alert after="12m">In order to win the game for your team you must obtain the opposing teams dyes to alter the color of the wool, which can be found in the middle underneath the sheep.</alert>
+	<alert after="30m">In order to win the game for your team you must obtain the opposing teams dyes to alter the color of the wool, which can be found in the middle underneath the sheep.</alert>
+    <tip after="30s" count="10" every="6m">Forming alliances with enemy teams are allowed!</tip>
+</broadcasts>
+<teams>
+   <team id="orange-team" color="orange" max="20" max-overfill="25">Orange Team</team>
+   <team id="blue-team" color="blue" max="20" max-overfill="25">Blue Team</team>
+   <team id="purple-team" color="pruple" max="20" max-overfill="25">Purple Team</team>
+   <team id="green-team" color="green" max="20" max-overfill="25">Green Team</team>
+</teams>
+<spawns>
+    <spawn team="orange" kit="orange">
+        <regions angle="796,9,664">
+            <block>776,9,643</block>
+            <block>817,9,684</block>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue">
+        <regions angle="603,9,664">
+            <block>623,9,643</block>
+            <block>582,9,684</block>
+        </regions>
+    </spawn>
+    <spawn team="purple" kit="purple">
+        <regions angle="796,9,859">
+            <block>776,9,880</block>
+            <block>817,9,839</block>
+        </regions>
+    </spawn>
+    <spawn team="green" kit="green">
+        <regions angle="603,9,859">
+            <block>623,9,880</block>
+            <block>582,9,839</block>
+        </regions>
+    </spawn>
+    <default>
+        <regions yaw="0">
+            <cuboid min="700,25,763" max="699,25,761"/>
+        </regions>
+    </default>
+</spawns>
+<kits>
+    <kit name="spawn" force="true">
+        <item slot="0" damage="-3000">stone sword</item>
+        <item slot="1" damage="-3000" enchantment="arrow infinite:1">bow</item>
+        <item slot="2" damage="-3000" enchantment="dig speed:2">stone axe</item>
+        <item slot="4" amount="32">wood:1</item>
+        <item slot="5" amount="16">glass</item>
+        <item slot="7" amount="32">golden carrot</item>
+        <item slot="8">golden apple</item>
+        <item slot="28">arrow</item>
+        <potion duration="3" amplifier="5">heal</potion>
+    </kit>
+    <kit name="orange" parents="spawn">
+        <helmet color="D87F33" damage="-3000">leather helmet</helmet>
+        <leggings damage="-3000">iron leggings</leggings>
+        <boots damage="-3000">chain boots</boots>
+    </kit>
+    <kit name="blue" parents="spawn">
+        <helmet color="334CB2" damage="-3000">leather helmet</helmet>
+        <leggings damage="-3000">iron leggings</leggings>
+        <boots damage="-3000">chain boots</boots>
+    </kit>
+    <kit name="purple" parents="spawn">
+        <helmet color="7F3FB2" damage="-3000">leather helmet</helmet>
+        <leggings damage="-3000">iron leggings</leggings>
+        <boots damage="-3000">chain boots</boots>
+    </kit>
+    <kit name="green" parents="spawn">
+        <helmet color="667F33" damage="-3000">leather helmet</helmet>
+        <leggings damage="-3000">iron leggings</leggings>
+        <boots damage="-3000">chain boots</boots>
+    </kit>
+</kits>
+<itemremove>
+    <item>golden carrot</item>
+    <item>string</item>
+    <item>sapling</item>
+    <item>seeds</item>
+    <item>wheat</item>
+</itemremove>
+<filters>
+	<filter name="allow-blocks">
+        <allow>
+		    <block>web</block>
+		    <block>leaves</block>
+		    <block>wood</block>
+		    <block>glass</block>
+        </allow>
+	</filter>
+	<filter name="only-wool">
+		<allow>
+			<block>wool</block>
+		</allow>
+	</filter>
+	<filter name="deny-void">
+        <deny>
+            <void/>
+        </deny>
+    </filter>
+    <filter name="only-orange">
+		<team>red</team>
+	</filter>
+	<filter name="only-blue">
+		<team>red</team>
+	</filter>
+	<filter name="only-purple">
+		<team>red</team>
+	</filter>
+	<filter name="only-green">
+		<team>red</team>
+	</filter>
+    <filter name="deny-orange">
+		<deny>
+			<team>orange</team>
+		</deny>
+	</filter>
+	<filter name="deny-blue">
+		<deny>
+			<team>blue</team>
+		</deny>
+	</filter>
+	<filter name="deny-purple">
+		<deny>
+			<team>purple</team>
+		</deny>
+	</filter>
+	<filter name="deny-green">
+		<deny>
+			<team>green</team>
+		</deny>
+	</filter>
+    <filter name="protect-blocks">
+        <deny>
+            <any>
+                <block>quartz</block>
+                <block>stained glass</block>
+            </any>
+        </deny>
+    </filter>
+</filters>
+<maxbuildheight>27</maxbuildheight>
+<regions>
+	<rectangle name="map" min="-oo,-oo" max="oo,oo"/>
+	<cuboid name="heightlimit" min="-oo,28,-oo" max="oo,oo,oo"/>
+    <cuboid name="sheep" min="705,18,745" max="694,28,770"/>  
+	<union name="spawns">
+        <rectangle name="orange-base-left" min="-20,-62" max="21,-32"/>
+        <rectangle name="orange-base-right" min="-20,33" max="21,63"/>
+        <rectangle name="blue-base-left" min="-20,-62" max="21,-32"/>
+        <rectangle name="blue-base-right" min="-20,33" max="21,63"/>
+        <rectangle name="purple-base-left" min="-20,-62" max="21,-32"/>
+        <rectangle name="purple-base-right" min="-20,33" max="21,63"/>
+        <rectangle name="green-base-left" min="-20,-62" max="21,-32"/>
+        <rectangle name="green-base-right" min="-20,33" max="21,63"/>
+    </union>
+    <union name="woolrooms">
+    	<rectangle name="orange-room" min="799,661" max="814,646"/>
+    	<rectangle name="green-room" min="600,862" max="585,877"/>
+    	<rectangle name="purple-room" min="799,862" max="814,14,877"/>
+    	<rectangle name="blue-room" min="600,661" max="585,646"/>
+    </union>
+    <union name="spawners">
+    	<rectangle min="702,763" max="697,758"/>
+    	<rectangle min="593,654" max="591,652"/>
+    	<rectangle min="593,869" max="591,871"/>
+    	<rectangle min="806,869" max="808,871"/>
+    	<rectangle min="806,654" max="808,652"/>
+    </union>
+    <union name="victorymonuments">
+        <!-- Green -->
+  		<cuboid min="621,15,841" max="619,8,844"/>
+    	<cuboid min="622,15,850" max="624,8,852"/>
+    	<cuboid min="612,15,840" max="610,8,838"/>
+        <!-- Purple -->
+    	<cuboid min="775,15,852" max="777,8,850"/>
+    	<cuboid min="780,15,843" max="778,8,841"/>
+    	<cuboid min="787,15,840" max="789,8,838"/>
+        <!-- Orange -->
+    	<cuboid min="789,15,685" max="787,8,683"/>
+    	<cuboid min="780,15,682" max="778,8,680"/>
+    	<cuboid min="777,15,673" max="775,8,671"/>
+        <!-- Blue -->
+    	<cuboid min="662,15,671" max="624,8,673"/>
+    	<cuboid min="621,15,680" max="619,8,682"/>
+    	<cuboid min="612,15,683" max="610,8,685"/>
+    </union>
+    <apply block="deny-all" message="You may not go above 28 blocks!">
+		<region name="heightlimit"/>
+	</apply>
+    <apply block="deny-void" message="You may not edit the void area!">
+		<region name="map"/>
+	</apply>
+	<apply enter="deny-green" message="You may not enter your team's wool room!">
+		<region name="green-room"/>
+	</apply>
+	<apply block="allow-blocks" use="deny-green">
+		<region name="green-room"/>
+	</apply>
+	<apply enter="deny-orange" message="You may not enter your team's wool room!">
+		<region name="orange-room"/>
+	</apply>
+	<apply block="allow-blocks" use="deny-orange">
+		<region name="orange-room"/>
+	</apply>
+	<apply enter="deny-purple" message="You may not enter your team's wool room!">
+		<region name="purple-room"/>
+	</apply>
+	<apply block="allow-blocks" use="deny-purple">
+		<region name="purple-room"/>
+	</apply>
+	<apply enter="deny-blue" message="You may not enter your team's wool room!">
+		<region name="blue-room"/>
+	</apply>
+	<apply block="allow-blocks" use="deny-blue">
+		<region name="blue-room"/>
+	</apply>
+	<apply block-place="deny-all" block-break="only-wool" message="Do not modify the Victory Monument!">
+		<union name="victorymonuments"/>
+	</apply>
+    <apply enter="only-green" message="You may not enter red's base!">
+        <region name="green-base-right"/>
+        <region name="green-base-left"/>
+    </apply>
+    <apply enter="only-blue" message="You may not enter red's base!">
+        <region name="blue-base-right"/>
+        <region name="blue-base-left"/>
+    </apply>
+    <apply enter="only-purple" message="You may not enter red's base!">
+        <region name="purple-base-right"/>
+        <region name="purple-base-left"/>
+    </apply>
+    <apply enter="only-orange" message="You may not enter red's base!">
+        <region name="orange-base-right"/>
+        <region name="orange-base-left"/>
+    </apply>
+	<apply block="deny-blocks">
+		<union name="spawners"/>
+		<union name="spawns"/>
+        <region name="sheep"/>
+	</apply>
+</regions>
+<wools team="orange" craftable="true">
+    <wool color="lime">
+        <monument><block>779,10,681</block></monument>
+    </wool>
+    <wool color="purple">
+        <monument><block>788,10,684</block></monument>
+    </wool>
+    <wool color="cyan">
+        <monument><block>776,10,672</block></monument>
+    </wool>
+</wools>
+<wools team="green" craftable="true">
+    <wool color="cyan">
+        <monument><block>611,10,839</block></monument>
+    </wool>
+    <wool color="purple">
+        <monument><block>623,10,851</block></monument>
+    </wool>
+    <wool color="orange">
+        <monument><block>620,10,842</block></monument>
+    </wool>
+</wools>
+<wools team="blue" craftable="true">
+    <wool color="orange">
+        <monument><block>623,10,672</block></monument>
+    </wool>
+    <wool color="purple">
+        <monument><block>620,10,681</block></monument>
+    </wool>
+    <wool color="lime">
+        <monument><block>611,10,684</block></monument>
+    </wool>
+</wools>
+<wools team="purple" craftable="true">
+    <wool color="orange">
+        <monument><block>788,10,839</block></monument>
+    </wool>
+    <wool color="cyan">
+        <monument><block>779,10,842</block></monument>
+    </wool>
+    <wool color="lime">
+        <monument><block>776,10,851</block></monument>
+    </wool>
+</wools>
+<tutorial>
+    <stage title="Capture the Wool">
+        <message>
+            <line>This map is a Capture the Wool map (CTW)</line>
+            <line>In order to win the game, your team must craft all three wools and return them to your victory monuments</line>
+        </message>
+    </stage>
+	<stage title="Collecting Wool">
+		<message>
+			<line>To collect wool, and later alter the color with dye, you must go to the big sheep (located in the middle of the map) and collect wool.</line>
+			<line>Every couple of seconds wool will spawn here.</line>
+		</message>
+		<teleport>
+			<point yaw="98">705,15,761</point>
+		</teleport>
+	</stage>
+	<stage title="Wool Room">
+		<message>
+			<line>This is orange team's wool room.</line>
+			<line>Here you can collect an orange dye to craft Orange Wool. There are three other wool rooms identical to this one, excluding dye spawners.</line>
+		</message>
+		<teleport>
+			<point yaw="-135">801,19,659</point>
+		</teleport>
+	</stage>
+	<stage title="Wool Monument">
+		<message>
+			<line>Once the appropriate wool has been collected, you may place it on one of these Wool Monuments (depending on what color the wool is).</line>
+			<line>Once all wools have been placed in their color specific monument, the team will win the game.</line>
+		</message>
+		<teleport>
+			<point yaw="-131">773,11,687</point>
+		</teleport>
+	</stage>
+</tutorial>
+</map>
